@@ -35,33 +35,35 @@ Note : this was written for 14.04
 
 * Git
 	* Install packages
-		sudo apt-get install git
+
+			sudo apt-get install git
+
 	* Create and upload new SSH key to GitHub
 
-		mkdir ~/.ssh
-		cd ~/.ssh
-		ssh-keygen -t rsa -o github-`hostname`
+			mkdir ~/.ssh
+			cd ~/.ssh
+			ssh-keygen -t rsa -o github-`hostname`
 
 	* Modify ssh_config file
 
-		echo "HostName github.com" >> ~/.ssh/config
-		echo "IdentityFile github-`hostname`
+			echo "HostName github.com" >> ~/.ssh/config
+			echo "IdentityFile github-`hostname`
 	* Install sexy-bash-prompt 
 
-		(cd sexy-bash-prompt && make install)
+			(cd sexy-bash-prompt && make install)
 
 * R
 	* Install programming language
 
-		sudo apt-get install r-base r-recommended
+			sudo apt-get install r-base r-recommended
 
 	* Install vim
 
-		sudo apt-get install vim
+			sudo apt-get install vim
 
 	* Install Vundle package manager for vim
 
-		git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+			git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 	* Install the vim plugins for R
 
