@@ -29,7 +29,19 @@ Note : this was written for 14.04
 
 		sudo apt-get install unity-tweak-tool gnome-tweak-tool
 
-	* Use Unity Tweak Tool -> Launcher to auto-hide the launcher
+* Use Unity Tweak Tool -> Launcher to auto-hide the launcher
+* Install and configure network mounts
+
+		sudo mkdir /mnt/vault
+	
+** Edit /etc/nsswitch.conf. Add "wins" to "hosts:" line
+** Add WINS name resolution
+
+		sudo apt-get install winbind
+
+** Edit /etc/fstab as root and add the following
+
+		//TheVault/Public  /media/vault  cifs  guest,uid=1000,iocharset=utf8  0  0
 
 # Development Tools
 
@@ -53,7 +65,14 @@ Note : this was written for 14.04
 * R
 	* Install programming language
 
+The extra repository is necessary to get 3.1.x on Ubuntu 14.04. This is a requirement if you want to install packages like "swirl".
+		
+		sudo apt-get install libcurl4-openssl-dev
+		sudo add-apt-repository ppa:marutter/rdev
+		sudo apt-get update
+		sudo apt-get upgrade
 		sudo apt-get install r-base r-recommended
+		
 
 	* Install vim
 
@@ -76,9 +95,30 @@ http://www.rstudio.com/products/rstudio/download/
 		sudo apt-add-repository ppa:webupd8team/java
 		sudo apt-get update
 		sudo apt-get install oracle-java8-installer
+		sudo apt-get install oracle-java7-installer
 
 * IntelliJ CE
 
 https://www.jetbrains.com/idea/download/
 
+# Safety
 
+* CrashPlan
+
+Download the latest CrashPlan installer from CrashPlan.com
+
+# Aesthetics
+
+* Natural Scrolling
+
+One way to solve this problem is with the following package.
+
+		sudo add-apt-repository ppa:zedtux/naturalscrolling
+		sudo apt-get update
+		sudo apt-get install naturalscrolling
+
+This reverses scrolling for some programs like web browsers but not for lots of other programs like gnome control panels.
+
+A more thoroughgoing solution can be found here : http://www.maketecheasier.com/reverse-mouse-scrolling-direction-in-ubuntu/
+
+This solution is in the included .Xmodmap file.
